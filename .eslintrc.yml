@@ -1,0 +1,29 @@
+env:
+  browser: true
+  es6: true
+extends:
+  - eslint:recommended
+  - plugin:flowtype/recommended
+globals:
+  Atomics: readonly
+  SharedArrayBuffer: readonly
+parser: babel-eslint
+parserOptions:
+  ecmaFeatures:
+    jsx: true
+  ecmaVersion: 2018
+  sourceType: module
+plugins:
+  - flowtype
+  - react
+rules:
+  indent: [error, 4, { SwitchCase: 1 }]
+  no-unused-vars: [error, {
+    args: none,
+    varsIgnorePattern: "^(_|React$)",
+  }]
+  linebreak-style: [error, unix]
+  quotes: [error, single]
+  semi: [error, always]
+  flowtype/delimiter-dangle: [error, always]
+  flowtype/no-types-missing-file-annotation: off
