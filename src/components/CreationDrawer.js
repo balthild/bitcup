@@ -8,7 +8,7 @@ import CopyIcon from '@atlaskit/icon/glyph/copy';
 import { url } from '../utils';
 
 
-interface ItemProps {
+type ItemProps = {
     url: string;
     text: string;
     label: string;

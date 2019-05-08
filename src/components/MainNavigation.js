@@ -7,12 +7,12 @@ import CreateIcon from '@atlaskit/icon/glyph/add';
 import ArrowLeftIcon from '@atlaskit/icon/glyph/arrow-left';
 import CreationDrawer from './CreationDrawer';
 
-interface Props {
+type Props = HasChildren & {
     dark: boolean;
     header: React.ComponentType<*>;
 }
 
-interface State {
+type State = {
     isDrawerOpened: boolean;
     navOpenState: {
         isOpened: boolean;
@@ -20,7 +20,7 @@ interface State {
     };
 }
 
-export default class MainNavigation extends React.Component<Props & HasChildren, State> {
+export default class MainNavigation extends React.Component<Props, State> {
     static defaultProps = {
         dark: false,
     };
