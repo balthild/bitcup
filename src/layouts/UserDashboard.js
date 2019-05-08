@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 
-import { AkContainerLogo, AkNavigationItem } from '@atlaskit/navigation';
+import { AkNavigationItem } from '@atlaskit/navigation';
 import TrayIcon from '@atlaskit/icon/glyph/tray';
 import ReposIcon from '@atlaskit/icon/glyph/bitbucket/repos';
 import GroupIcon from '@atlaskit/icon/glyph/people-group';
@@ -11,23 +11,11 @@ import DiscoverIcon from '@atlaskit/icon/glyph/discover';
 import Page from '@atlaskit/page';
 
 import MainNavigation from '../components/MainNavigation';
+import BrandMark from '../components/BrandMark';
 import { url } from '../utils';
 
-const NavHeader: React.ComponentType<*> = () => (
-    <AkContainerLogo>
-        <div style={{
-            width: '100%',
-            fontSize: 32,
-            lineHeight: 1,
-            whiteSpace: 'nowrap',
-            textOverflow: 'ellipsis',
-            overflow: 'hidden',
-        }}>{GlobalData.appName}</div>
-    </AkContainerLogo>
-);
-
 const Nav = () => (
-    <MainNavigation dark={true} header={NavHeader}>
+    <MainNavigation dark={true} header={BrandMark}>
         <AkNavigationItem
             icon={<TrayIcon />}
             text={'Activities'}

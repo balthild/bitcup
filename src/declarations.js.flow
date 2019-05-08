@@ -1,7 +1,7 @@
 import type Node from 'react';
 
 declare type HasChildren = {
-    children?: Node;
+    +children?: Node;
 }
 
 declare var GlobalData: {

@@ -6,6 +6,7 @@ import MediaServicesBlurIcon from '@atlaskit/icon/glyph/media-services/blur';
 import CreateIcon from '@atlaskit/icon/glyph/add';
 import ArrowLeftIcon from '@atlaskit/icon/glyph/arrow-left';
 import CreationDrawer from './CreationDrawer';
+import BrandMark from './BrandMark';
 
 type Props = HasChildren & {
     dark: boolean;
@@ -49,6 +50,7 @@ export default class MainNavigation extends React.Component<Props, State> {
                 drawers={(
                     <AkCreateDrawer
                         backIcon={<ArrowLeftIcon label="Back icon" size="medium" />}
+                        header={<BrandMark />}
                         isOpen={this.state.isDrawerOpened}
                         onBackButton={this.closeDrawer}
                         primaryIcon={logo}>
