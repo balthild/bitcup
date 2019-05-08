@@ -1,3 +1,9 @@
+import type Node from 'react';
+
+declare type HasChildren = {
+    children?: Node;
+}
+
 declare var GlobalData: {
     baseUri: string;
     appName: string;

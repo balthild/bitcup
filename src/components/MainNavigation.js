@@ -10,7 +10,6 @@ import CreationDrawer from './CreationDrawer';
 interface Props {
     dark: boolean;
     header: React.ComponentType<*>;
-    children?: React.Node;
 }
 
 interface State {
@@ -21,7 +20,7 @@ interface State {
     };
 }
 
-export default class MainNavigation extends React.Component<Props, State> {
+export default class MainNavigation extends React.Component<Props & HasChildren, State> {
     static defaultProps = {
         dark: false,
     };

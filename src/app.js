@@ -16,7 +16,7 @@ function getComponentModule(template: string) {
     }
 }
 
-function render(template: string, data: any) {
+function render(template: string, data: mixed) {
     const PageComponent = getComponentModule(template).default;
 
     ReactDOM.render(

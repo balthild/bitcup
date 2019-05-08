@@ -7,7 +7,7 @@ templates
 src/**/*.js
 
 [libs]
-src/types.js.flow
+src/declarations.js.flow
 
 [options]
 all=false

@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 
-import { AkContainerTitle, AkNavigationItem } from '@atlaskit/navigation';
+import { AkContainerLogo, AkNavigationItem } from '@atlaskit/navigation';
 import TrayIcon from '@atlaskit/icon/glyph/tray';
 import ReposIcon from '@atlaskit/icon/glyph/bitbucket/repos';
 import GroupIcon from '@atlaskit/icon/glyph/people-group';
@@ -14,10 +14,16 @@ import MainNavigation from '../components/MainNavigation';
 import { url } from '../utils';
 
 const NavHeader: React.ComponentType<*> = () => (
-    <AkContainerTitle
-        href="#"
-        icon={<img src={GlobalData.baseUri + '/img/gitea-sm.png'} />}
-        text="Atlaskit" />
+    <AkContainerLogo>
+        <div style={{
+            width: '100%',
+            fontSize: 32,
+            lineHeight: 1,
+            whiteSpace: 'nowrap',
+            textOverflow: 'ellipsis',
+            overflow: 'hidden',
+        }}>{GlobalData.appName}</div>
+    </AkContainerLogo>
 );
 
 const Nav = () => (
@@ -53,11 +59,7 @@ const Nav = () => (
     </MainNavigation>
 );
 
-interface Props {
-    children?: React.Node;
-}
-
-export default class UserDashboard extends React.Component<Props> {
+export default class UserDashboard extends React.Component<HasChildren> {
     render() {
         return <Page navigation={<Nav />}>{this.props.children}</Page>;
     }
