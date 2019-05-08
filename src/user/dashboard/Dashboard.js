@@ -1,11 +1,14 @@
-import React from 'react';
+// @flow
+import * as React from 'react';
 
-interface Props {
-    as: string;
-}
+import UserDashboard from '../../layouts/UserDashboard';
 
-export default class Dashboard extends React.Component<Props> {
+export default class Dashboard extends React.Component<*> {
     render() {
-        return <div>{this.props.as}</div>;
+        return (
+            <UserDashboard>
+                123213
+            </UserDashboard>
+        );
     }
 }

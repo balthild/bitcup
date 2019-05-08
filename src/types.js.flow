@@ -1,0 +1,8 @@
+declare var GlobalData: {
+    baseUri: string;
+    appName: string;
+    title: string;
+    lang: string;
+    isSignedIn: boolean;
+    user: any;
+};

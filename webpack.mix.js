@@ -17,6 +17,9 @@ require('laravel-mix')
             '@babel/preset-react',
             '@babel/preset-flow',
         ],
+        'plugins': [
+            '@babel/plugin-proposal-class-properties'
+        ],
     })
     .setPublicPath('public/bitcup/dist')
     .setResourceRoot('/bitcup/dist')

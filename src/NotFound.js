@@ -1,5 +1,6 @@
-import React from 'react';
+// @flow
+import * as React from 'react';
 
-export default _ => (
+export default () => (
     <div>404</div>
 );

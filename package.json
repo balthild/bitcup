@@ -15,11 +15,19 @@
     "production": "cross-env NODE_ENV=production webpack --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "dependencies": {
+    "@atlaskit/avatar": "^16.0.1",
     "@atlaskit/css-reset": "^4.0.0",
+    "@atlaskit/flag": "^11.0.0",
+    "@atlaskit/icon": "^17.0.0",
+    "@atlaskit/navigation": "^35.0.0",
+    "@atlaskit/page": "^10.0.0",
+    "@atlaskit/theme": "^9.0.0",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "styled-components": "^3"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
@@ -28,7 +36,9 @@
     "eslint": "^5.16.0",
     "eslint-loader": "^2.1.2",
     "eslint-plugin-flowtype": "^3.7.0",
+    "eslint-plugin-flowtype-errors": "^4.1.0",
     "eslint-plugin-react": "^7.13.0",
+    "flow-bin": "^0.98.1",
     "laravel-mix": "^4.0.15",
     "resolve-url-loader": "2.3.1",
     "sass": "^1.20.1",

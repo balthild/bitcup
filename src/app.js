@@ -1,7 +1,10 @@
+// @flow
 import React from 'react';
 import ReactDOM from 'react-dom';
 
 import '@atlaskit/css-reset';
+
+import { unwrap } from './utils';
 
 function getComponentModule(template: string) {
     /* global require */
@@ -14,9 +17,11 @@ function getComponentModule(template: string) {
 }
 
 function render(template: string, data: any) {
+    const PageComponent = getComponentModule(template).default;
+
     ReactDOM.render(
-        React.createElement(getComponentModule(template).default, data),
-        document.getElementById('app')
+        <PageComponent {...data} />,
+        unwrap(document.getElementById('app'))
     );
 }
 

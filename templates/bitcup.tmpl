@@ -10,11 +10,11 @@
 
     <script>
         if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('{{AppSubUrl}}/serviceworker.js').then(function(registration) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('{{AppSubUrl}}/serviceworker.js').then(function (registration) {
                     // Registration was successful
                     console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                }, function(err) {
+                }, function (err) {
                     // registration failed :(
                     console.log('ServiceWorker registration failed: ', err);
                 });
@@ -25,7 +25,8 @@
     <meta name="theme-color" content="#0747a6">
 
     <meta name="author" content="{{if .Repository}}{{.Owner.Name}}{{else}}{{MetaAuthor}}{{end}}" />
-    <meta name="description" content="{{if .Repository}}{{.Repository.Name}}{{if .Repository.Description}} - {{.Repository.Description}}{{end}}{{else}}{{MetaDescription}}{{end}}" />
+    <meta name="description"
+          content="{{if .Repository}}{{.Repository.Name}}{{if .Repository.Description}} - {{.Repository.Description}}{{end}}{{else}}{{MetaDescription}}{{end}}" />
     <meta name="keywords" content="{{MetaKeywords}}">
     <meta name="referrer" content="no-referrer" />
     <meta name="_csrf" content="{{.CsrfToken}}" />
@@ -77,6 +78,18 @@
 <body>
 <noscript>{{.i18n.Tr "enable_javascript"}}</noscript>
 <div id="app"></div>
+
+<script>
+    GlobalData = {
+        baseUri: {{AppSubUrl}},
+        appName: {{AppName}},
+        title: {{.Title}},
+        lang: {{.Language}},
+
+        isSignedIn: {{.IsSigned}},
+        user: {{.SignedUser}},
+    };
+</script>
 
 {{template "render"}}
 
