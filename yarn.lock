@@ -63,6 +63,18 @@
     "@babel/runtime" "^7.0.0"
     prop-types "^15.5.10"
 
+"@atlaskit/comment@^8.0.1":
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/@atlaskit/comment/-/comment-8.0.1.tgz#69745b94ef4d0900052ef5b971f56cff433cba0b"
+  integrity sha512-CSC8Yky1ZPCya2OlOJKWkY3FYTI4Kto8JguWwkDLTMoeHLxSsRph2q1GxctFcj0901bV0TATeHwE0j9gsS17Pw==
+  dependencies:
+    "@atlaskit/analytics-next" "^5.0.0"
+    "@atlaskit/button" "^13.0.0"
+    "@atlaskit/icon" "^17.0.0"
+    "@atlaskit/lozenge" "^8.0.0"
+    "@atlaskit/theme" "^9.0.0"
+    "@babel/runtime" "^7.0.0"
+
 "@atlaskit/css-reset@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@atlaskit/css-reset/-/css-reset-4.0.0.tgz#7b19d80059d09249662ac9a640141307db0b3b63"
@@ -180,6 +192,15 @@
     popper.js "^1.14.1"
     raf-schd "^2.1.0"
     react-scrolllock "^3.0.2"
+
+"@atlaskit/lozenge@^8.0.0":
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/@atlaskit/lozenge/-/lozenge-8.0.0.tgz#11367b62feaf54927ae872da2db7503174b07a2c"
+  integrity sha512-yH+eu0ZJxiL6k4tTmBYFE1r8NiQc2SuViUBnAk2IlGzD4dHRwazC3oZlqndebQswkBc2I9ka9KkKoYVoYWllMQ==
+  dependencies:
+    "@atlaskit/theme" "^9.0.0"
+    "@babel/runtime" "^7.0.0"
+    "@emotion/core" "^10.0.9"
 
 "@atlaskit/navigation@^35.0.0":
   version "35.0.0"

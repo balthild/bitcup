@@ -110,10 +110,14 @@
             home_link: {{.ContextUser.HomeLink}},
         },
         {{end}}
+
+        translations: {
+            // TODO
+            'home.my_repos': {{$.i18n.Tr "home.my_repos"}},
+        },
     };
 </script>
-
-{{template "render"}}
+{{template "render" .}}
 
 {{template "custom/footer" .}}
 </body>

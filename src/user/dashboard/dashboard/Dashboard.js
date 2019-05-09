@@ -15,12 +15,15 @@ function getDefaultSelectedNavItem() {
     return 'act';
 }
 
+type Props = {
+    activities: UserActivity[],
+}
 
 type State = {
     currentPage: string;
 }
 
-export default class Dashboard extends React.Component<{}, State> {
+export default class Dashboard extends React.Component<Props, State> {
     state = {
         currentPage: getDefaultSelectedNavItem(),
     };
@@ -37,7 +40,7 @@ export default class Dashboard extends React.Component<{}, State> {
         } else if (this.state.currentPage === 'repo') {
             return <RepositoriesPage />;
         } else {
-            return <ActivitiesPage />;
+            return <ActivitiesPage activities={this.props.activities} />;
         }
     }
 

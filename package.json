@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@atlaskit/avatar": "^16.0.1",
+    "@atlaskit/comment": "^8.0.1",
     "@atlaskit/css-reset": "^4.0.0",
     "@atlaskit/field-text": "^9.0.0",
     "@atlaskit/flag": "^11.0.0",

@@ -13,7 +13,7 @@ declare type User = {
     is_admin: boolean;
 }
 
-declare type UserExtra = {
+declare type UserExtra = User & {
     is_organization: boolean;
     home_link: string;
 }
@@ -30,12 +30,35 @@ declare type Repo = {
     updated_at: string;
 }
 
+declare type UserActivity = {
+    id: number;
+    actUser: UserExtra;
+    avatar: string;
+    opType: string;
+    repoLink: string;
+    time: string;
+    message: string;
+    content: UserActivityCommit[] | UserActivityIssueComment | string | null;
+};
+
+declare type UserActivityCommit = {
+    avatar: string;
+    hash: string;
+    link: string;
+    message: string;
+}
+
+declare type UserActivityIssueComment = {
+    title: string;
+    content: string;
+}
+
 declare var GlobalData: {
     baseUri: string;
     appName: string;
     title: string;
     lang: string;
     isSignedIn: boolean;
-    authUser: User & UserExtra;
-    contextUser: User & UserExtra;
+    authUser: UserExtra;
+    contextUser: UserExtra;
 };

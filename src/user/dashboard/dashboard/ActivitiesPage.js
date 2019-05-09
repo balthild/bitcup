@@ -2,9 +2,14 @@
 import * as React from 'react';
 
 import ContentLayout from './ContentLayout';
+import ActivitiesTable from './ActivitiesTable';
 
-export default () => (
+type Props = {
+    activities: UserActivity[];
+}
+
+export default (props: Props) => (
     <ContentLayout title="Activities">
-        // TODO
+        <ActivitiesTable activities={props.activities} />
     </ContentLayout>
 );
