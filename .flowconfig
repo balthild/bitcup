@@ -11,3 +11,4 @@ src/declarations.js.flow
 
 [options]
 all=false
+module.name_mapper='^@src' -> '<PROJECT_ROOT>/src'

@@ -9,9 +9,9 @@ import { unwrap } from './utils';
 function getComponentModule(template: string) {
     /* global require */
     switch (template) {
-        case 'user/dashboard/dashboard': return require('./user/dashboard/Dashboard');
-        case 'user/dashboard/feeds': return require('./user/dashboard/Dashboard');
-        case 'user/dashboard/issues': return require('./user/dashboard/Dashboard');
+        case 'user/dashboard/dashboard': return require('./user/dashboard/dashboard');
+        case 'user/dashboard/feeds': return require('./user/dashboard/dashboard');
+        case 'user/dashboard/issues': return require('./user/dashboard/dashboard');
         default: return require('./NotFound');
     }
 }

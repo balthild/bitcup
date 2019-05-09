@@ -17,11 +17,17 @@
   "dependencies": {
     "@atlaskit/avatar": "^16.0.1",
     "@atlaskit/css-reset": "^4.0.0",
+    "@atlaskit/field-text": "^9.0.0",
     "@atlaskit/flag": "^11.0.0",
     "@atlaskit/icon": "^17.0.0",
     "@atlaskit/navigation": "^35.0.0",
     "@atlaskit/page": "^10.0.0",
+    "@atlaskit/page-header": "^8.0.0",
+    "@atlaskit/select": "^9.0.1",
+    "@atlaskit/spinner": "^11.0.0",
     "@atlaskit/theme": "^9.0.0",
+    "@babel/plugin-proposal-export-default-from": "^7.2.0",
+    "lodash-es": "^4.17.11",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "styled-components": "^3"

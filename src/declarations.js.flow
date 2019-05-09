@@ -4,11 +4,38 @@ declare type HasChildren = {
     +children?: Node;
 }
 
+declare type User = {
+    id: number;
+    username: string;
+    full_name: string;
+    email: string;
+    avatar_url: string;
+    is_admin: boolean;
+}
+
+declare type UserExtra = {
+    is_organization: boolean;
+    home_link: string;
+}
+
+declare type Repo = {
+    id: number;
+    name: string;
+    description: string;
+    full_name: string;
+    owner: User;
+    html_url: string;
+    stars_count: number;
+    created_at: string;
+    updated_at: string;
+}
+
 declare var GlobalData: {
     baseUri: string;
     appName: string;
     title: string;
     lang: string;
     isSignedIn: boolean;
-    user: any;
+    authUser: User & UserExtra;
+    contextUser: User & UserExtra;
 };

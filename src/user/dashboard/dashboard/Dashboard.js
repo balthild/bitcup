@@ -1,28 +1,20 @@
 // @flow
 import * as React from 'react';
 
-import UserDashboard from '../../layouts/UserDashboard';
+import UserDashboard from '@src/layouts/UserDashboard';
+import ActivitiesPage from './ActivitiesPage';
+import RepositoriesPage from './RepositoriesPage';
+import OrganizationsPage from './OrganizationsPage';
 
 function getDefaultSelectedNavItem() {
     const hash = location.hash.substr(1);
 
-    if (hash in ['act', 'repo', 'org'])
+    if (['act', 'repo', 'org'].includes(hash))
         return hash;
 
     return 'act';
 }
 
-const ActivitiesPage = () => (
-    <div>Activities</div>
-);
-
-const RepositoriesPage = () => (
-    <div>TODO: repo</div>
-);
-
-const OrganizationsPage = () => (
-    <div>TODO: org</div>
-);
 
 type State = {
     currentPage: string;

@@ -10,9 +10,9 @@ import IssuesIcon from '@atlaskit/icon/glyph/issues';
 import DiscoverIcon from '@atlaskit/icon/glyph/discover';
 import Page from '@atlaskit/page';
 
-import MainNavigation from '../components/MainNavigation';
-import BrandMark from '../components/BrandMark';
-import { url } from '../utils';
+import MainNavigation from '@src/components/MainNavigation';
+import BrandMark from '@src/components/BrandMark';
+import { url } from '@src/utils';
 
 type Props = HasChildren & {
     defaultSelectedNavItem: string;
@@ -28,12 +28,17 @@ export default class UserDashboard extends React.Component<Props, State> {
         selectedNavItem: this.props.defaultSelectedNavItem,
     };
 
-    onNavItemClicked = (selected: string) => {
+    gotoSubPage = (selected: string) => {
         this.setState({ selectedNavItem: selected });
 
         if (this.props.onNavItemSelected)
             return this.props.onNavItemSelected(selected);
     };
+
+    // Do not create anonymous function in rendering procedure
+    gotoActivities = () => this.gotoSubPage('act');
+    gotoRepositories = () => this.gotoSubPage('repo');
+    gotoOrganizations = () => this.gotoSubPage('org');
 
     renderNav() {
         return (
@@ -43,19 +48,19 @@ export default class UserDashboard extends React.Component<Props, State> {
                     text={'Activities'}
                     isSelected={this.state.selectedNavItem === 'act'}
                     href={url('/#act')}
-                    onClick={() => this.onNavItemClicked('act')} />
+                    onClick={this.gotoActivities} />
                 <AkNavigationItem
                     icon={<ReposIcon />}
                     text={'Repositories'}
                     isSelected={this.state.selectedNavItem === 'repo'}
                     href={url('/#repo')}
-                    onClick={() => this.onNavItemClicked('repo')} />
+                    onClick={this.gotoRepositories} />
                 <AkNavigationItem
                     icon={<GroupIcon />}
                     text={'Organizations'}
                     isSelected={this.state.selectedNavItem === 'org'}
                     href={url('/#org')}
-                    onClick={() => this.onNavItemClicked('org')} />
+                    onClick={this.gotoOrganizations} />
 
                 <AkNavigationItem
                     icon={<IssuesIcon />}

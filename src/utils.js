@@ -1,4 +1,6 @@
 // @flow
+import { gridSize } from '@atlaskit/theme';
+import styled from 'styled-components';
 
 export function url(route: string) {
     if (!route.startsWith('/'))
@@ -14,7 +16,20 @@ export function unwrap<T>(val: ?T): T {
     return val;
 }
 
+export function grid(n: number, unit: string = 'px') {
+    return gridSize() * n + unit;
+}
+
 // TODO: i18n
 export function __(key: string) {
     return '';
 }
+
+export const FlexRow = styled.div`
+    display: flex;
+`;
+
+export const Centerize = styled.div`
+    display: flex;
+    align-items: center;
+`;

@@ -20,7 +20,10 @@ plugins:
   - flowtype
   - flowtype-errors
 rules:
-  indent: [error, 4, { SwitchCase: 1 }]
+  indent: [error, 4, {
+    SwitchCase: 1,
+    ignoredNodes: ["JSXElement *"]
+  }]
   no-unused-vars: [error, {
     args: none,
     varsIgnorePattern: "^(_|React$)",
@@ -29,6 +32,10 @@ rules:
   quotes: [error, single]
   semi: [error, always]
   react/jsx-uses-vars: error
+  react/jsx-no-bind: error
+  react/jsx-indent: [error, 4]
+  react/jsx-indent-props: [error, 4]
+  react/jsx-closing-bracket-location: [error, after-props]
   flowtype/require-valid-file-annotation: [error, always]
   flowtype/delimiter-dangle: [error, always]
   flowtype/no-weak-types: [2, { any: true }]

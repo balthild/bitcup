@@ -10,6 +10,11 @@ require('laravel-mix')
                 },
             ],
         },
+        resolve: {
+            alias: {
+                '@src': require('path').resolve(__dirname, 'src/'),
+            },
+        },
     })
     .babelConfig({
         presets: [
@@ -18,7 +23,8 @@ require('laravel-mix')
             '@babel/preset-flow',
         ],
         'plugins': [
-            '@babel/plugin-proposal-class-properties'
+            '@babel/plugin-proposal-class-properties',
+            '@babel/plugin-proposal-export-default-from',
         ],
     })
     .setPublicPath('public/bitcup/dist')

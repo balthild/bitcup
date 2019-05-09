@@ -15,10 +15,6 @@ type Props = HasChildren & {
 
 type State = {
     isDrawerOpened: boolean;
-    navOpenState: {
-        isOpened: boolean;
-        width: number;
-    };
 }
 
 export default class MainNavigation extends React.Component<Props, State> {
@@ -28,10 +24,6 @@ export default class MainNavigation extends React.Component<Props, State> {
 
     state = {
         isDrawerOpened: false,
-        navOpenState: {
-            isOpened: false,
-            width: 100,
-        },
     };
 
     openDrawer = () => this.setState({ isDrawerOpened: true });
@@ -42,6 +34,8 @@ export default class MainNavigation extends React.Component<Props, State> {
 
         return (
             <Navigation
+                isCollapsible={false}
+                isResizeable={false}
                 globalPrimaryIcon={logo}
                 globalPrimaryItemHref={GlobalData.baseUri + '/'}
                 globalCreateIcon={<CreateIcon label="Create icon" />}

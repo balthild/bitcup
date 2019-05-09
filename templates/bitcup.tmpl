@@ -87,7 +87,29 @@
         lang: {{.Language}},
 
         isSignedIn: {{.IsSigned}},
-        user: {{.SignedUser}},
+        authUser: /* User */ {
+            id: {{.SignedUser.ID}},
+            username: {{.SignedUser.Name}},
+            full_name: {{.SignedUser.FullName}},
+            email: {{.SignedUser.Email}},
+            avatar_url: {{.SignedUser.Avatar}},
+            is_admin: {{.SignedUser.IsAdmin}},
+            is_organization: {{.SignedUser.IsOrganization}},
+            home_link: {{.SignedUser.HomeLink}},
+        },
+
+        {{if .ContextUser}}
+        contextUser: /* User */ {
+            id: {{.ContextUser.ID}},
+            username: {{.ContextUser.Name}},
+            full_name: {{.ContextUser.FullName}},
+            email: {{.ContextUser.Email}},
+            avatar_url: {{.ContextUser.Avatar}},
+            is_admin: {{.ContextUser.IsAdmin}},
+            is_organization: {{.ContextUser.IsOrganization}},
+            home_link: {{.ContextUser.HomeLink}},
+        },
+        {{end}}
     };
 </script>
 
