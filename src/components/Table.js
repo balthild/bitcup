@@ -11,6 +11,14 @@ export const Row = styled.tr`
     :last-child { padding-right: 0; }
 `;
 
+export const BorderedRow = styled.tr`
+    :first-child { padding-left: 0; }
+    :last-child { padding-right: 0; }
+    > td {
+        border-bottom: 1px solid ${colors.N20};
+    }
+`;
+
 export const HeadCell = styled.th`
     padding: ${grid(0.5)} ${grid(1)};
     color: ${colors.N300};

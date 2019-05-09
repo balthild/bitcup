@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 
+import { grid } from '@src/utils';
 import UserDashboard from '@src/layouts/UserDashboard';
 import ActivitiesPage from './ActivitiesPage';
 import RepositoriesPage from './RepositoriesPage';
@@ -49,7 +50,9 @@ export default class Dashboard extends React.Component<Props, State> {
             <UserDashboard
                 defaultSelectedNavItem={getDefaultSelectedNavItem()}
                 onNavItemSelected={this.onNavItemSelected}>
-                {this.renderPage()}
+                <div style={{ paddingBottom: grid(4) }}>
+                    {this.renderPage()}
+                </div>
             </UserDashboard>
         );
     }

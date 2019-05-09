@@ -61,6 +61,7 @@ export default (props: Props) => (
                             <small style={{
                                 fontWeight: 'normal',
                                 display: 'block',
+                                margin: 0,
                                 maxWidth: grid(60),
                             }}>{repo.description}</small>
                         </Cell>

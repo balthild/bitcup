@@ -6,7 +6,7 @@ import { colors } from '@atlaskit/theme';
 import Avatar from '@atlaskit/avatar';
 
 import { grid } from '@src/utils';
-import { Cell, CellWithAvatar, HeadCell, Row } from '@src/components/Table';
+import { BorderedRow, Cell, CellWithAvatar, HeadCell, Row } from '@src/components/Table';
 
 const SmallText = styled.small`
     font-weight: normal;
@@ -43,7 +43,7 @@ function renderActivityContent(act: UserActivity) {
                 {content.map((commit: UserActivityCommit) => (
                     <CommitItem>
                         <Avatar src={commit.avatar} size="xsmall" />
-                        <CommitMessage>{commit.hash}</CommitMessage>
+                        <CommitMessage>{commit.hash} - {commit.message}</CommitMessage>
                     </CommitItem>
                 ))}
             </CommitList>
@@ -51,7 +51,7 @@ function renderActivityContent(act: UserActivity) {
     } else {
         return (
             <>
-                <div><small>{content.title}</small></div>
+                <small>{content.title}</small>
                 <SmallText>{content.content}</SmallText>
             </>
         );
@@ -73,7 +73,7 @@ export default (props: Props) => (
             </thead>
             <tbody>
                 {props.activities.map((act: UserActivity) => (
-                    <Row key={act.id}>
+                    <BorderedRow key={act.id}>
                         <CellWithAvatar>
                             <Avatar src={act.avatar} label={act.actUser.full_name} />
 
@@ -92,8 +92,12 @@ export default (props: Props) => (
                             </div>
                         </CellWithAvatar>
 
-                        <Cell>{renderActivityContent(act)}</Cell>
-                    </Row>
+                        <Cell style={{ verticalAlign: 'top' }}>
+                            <div style={{ padding: `${grid(1)} 0` }}>
+                                {renderActivityContent(act)}
+                            </div>
+                        </Cell>
+                    </BorderedRow>
                 ))}
             </tbody>
         </table>
