@@ -2,6 +2,7 @@
 import * as React from 'react';
 
 import { debounce } from 'lodash-es';
+import * as queryString from 'query-string';
 import { FieldTextStateless } from '@atlaskit/field-text';
 import Select from '@atlaskit/select';
 
@@ -24,14 +25,21 @@ export default class RepositoriesPage extends React.Component<{}, State> {
         repos: [],
     };
 
-    searchRepos = debounce(async () => {
+    searchRepos = async () => {
         this.setState({
             loading: true,
         });
 
-        const url = `${GlobalData.baseUri}/api/v1/repos/search?sort=updated&order=desc\
-&uid=${GlobalData.contextUser.id}&q=${this.state.keywords}&limit=15\
-&mode=${this.state.mode}${this.state.mode === '' ? '&exclusive=1' : ''}`;
+        const cond = queryString.stringify({
+            sort: 'updated',
+            order: 'desc',
+            uid: GlobalData.contextUser.id,
+            q: this.state.keywords,
+            limit: 15,
+            mode: this.state.mode,
+            exclusive: this.state.mode === '',
+        });
+        const url = `${GlobalData.baseUri}/api/v1/repos/search?${cond}`;
 
         const data = await fetch(url).then(r => r.json());
 
@@ -39,14 +47,16 @@ export default class RepositoriesPage extends React.Component<{}, State> {
             loading: false,
             repos: data.data,
         });
-    }, 300);
+    };
+
+    searchReposDebounced = debounce(this.searchRepos, 300);
 
     onKeywordChanged = (e: SyntheticKeyboardEvent<*>) => {
         this.setState({
             keywords: e.currentTarget.value,
         });
 
-        this.searchRepos();
+        this.searchReposDebounced();
     };
 
     onTypeChanged = (type: { mode: string; }) => {
@@ -54,7 +64,7 @@ export default class RepositoriesPage extends React.Component<{}, State> {
             mode: type.mode,
         });
 
-        this.searchRepos();
+        this.searchReposDebounced();
     };
 
     componentDidMount() {
