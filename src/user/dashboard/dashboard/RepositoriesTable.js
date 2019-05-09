@@ -47,7 +47,7 @@ export default (props: Props) => (
 
                                 <small style={{ fontWeight: 'normal' }}>
                                     <a href={url(repo.owner.username)} style={{ color: 'inherit' }}>
-                                        {repo.owner.full_name}
+                                        {repo.owner.full_name || repo.owner.username}
                                     </a>
                                     {' - '}
                                     <time dateTime={repo.updated_at}>
