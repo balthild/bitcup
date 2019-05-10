@@ -21,7 +21,8 @@ const CommitItem = styled.li`
 `;
 
 const CommitMessage = styled(SmallText)`
-    margin: 0 0 0 ${grid(0.25)};
+    margin: 0 0 0 ${grid(0.5)};
+    a { color: inherit; }
 `;
 
 function renderActivityContent(act: UserActivity) {
@@ -35,9 +36,11 @@ function renderActivityContent(act: UserActivity) {
         return (
             <CommitList>
                 {content.map((commit: UserActivityCommit) => (
-                    <CommitItem>
+                    <CommitItem key={commit.hash}>
                         <Avatar src={commit.avatar} size="xsmall" />
-                        <CommitMessage>{commit.hash} - {commit.message}</CommitMessage>
+                        <CommitMessage>
+                            <a href={commit.link}>{commit.hash}</a> - {commit.message}
+                        </CommitMessage>
                     </CommitItem>
                 ))}
             </CommitList>
