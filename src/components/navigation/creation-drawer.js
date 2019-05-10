@@ -6,7 +6,7 @@ import ReposIcon from '@atlaskit/icon/glyph/bitbucket/repos';
 import GroupIcon from '@atlaskit/icon/glyph/people-group';
 import CopyIcon from '@atlaskit/icon/glyph/copy';
 
-import { url } from '../../utils';
+import { url } from '@src/utils';
 
 type ItemProps = {
     url: string;
@@ -30,7 +30,7 @@ export default () => (
                 label="Create a repository"
                 icon={ReposIcon} />
             <Item
-                url={url('/repo/create')}
+                url={url('/org/create')}
                 text="Organization"
                 label="Create an organization"
                 icon={GroupIcon} />

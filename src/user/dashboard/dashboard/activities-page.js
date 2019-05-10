@@ -1,8 +1,8 @@
 // @flow
 import * as React from 'react';
 
-import ContentLayout from './ContentLayout';
-import ActivitiesTable from './ActivitiesTable';
+import ContentLayout from './content-layout';
+import ActivitiesTable from './activities-table';
 
 type Props = {
     activities: UserActivity[];

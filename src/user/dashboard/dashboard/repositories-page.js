@@ -6,8 +6,8 @@ import * as queryString from 'query-string';
 import { FieldTextStateless } from '@atlaskit/field-text';
 import Select from '@atlaskit/select';
 
-import ContentLayout from './ContentLayout';
-import RepositoriesTable from './RepositoriesTable';
+import ContentLayout from './content-layout';
+import RepositoriesTable from './repositories-table';
 import { FlexRow, grid } from '@src/utils';
 
 type State = {

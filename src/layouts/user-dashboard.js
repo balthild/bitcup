@@ -10,8 +10,8 @@ import IssuesIcon from '@atlaskit/icon/glyph/issues';
 import DiscoverIcon from '@atlaskit/icon/glyph/discover';
 import Page from '@atlaskit/page';
 
-import MainNavigation from '@src/components/navigation/MainNavigation';
-import BrandMark from '@src/components/navigation/BrandMark';
+import MainNavigation from '@src/components/navigation/main-navigation';
+import BrandMark from '@src/components/navigation/brand-mark';
 import { url } from '@src/utils';
 
 type Props = HasChildren & {

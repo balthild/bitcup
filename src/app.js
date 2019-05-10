@@ -12,7 +12,7 @@ function getComponentModule(template: string) {
         case 'user/dashboard/dashboard': return require('./user/dashboard/dashboard');
         case 'user/dashboard/feeds': return require('./user/dashboard/dashboard');
         case 'user/dashboard/issues': return require('./user/dashboard/dashboard');
-        default: return require('./NotFound');
+        default: return require('./error/not-found');
     }
 }
 

@@ -8,9 +8,9 @@ import ArrowLeftIcon from '@atlaskit/icon/glyph/arrow-left';
 import NotificationIcon from '@atlaskit/icon/glyph/notification';
 
 import { url } from '@src/utils';
-import BrandMark from './BrandMark';
-import CreationDrawer from './CreationDrawer';
-import UserDropdown from './UserDropdown';
+import BrandMark from './brand-mark';
+import CreationDrawer from './creation-drawer';
+import UserDropdown from './user-dropdown';
 
 type Props = HasChildren & {
     dark: boolean;
