@@ -6,18 +6,13 @@ import { colors } from '@atlaskit/theme';
 import Avatar from '@atlaskit/avatar';
 
 import { grid } from '@src/utils';
-import { BorderedRow, Cell, CellWithAvatar, HeadCell, Row } from '@src/components/Table';
-
-const SmallText = styled.small`
-    font-weight: normal;
-    display: block;
-    margin: ${grid(0.25)} 0 0;
-`;
+import { AvatarCell, BorderedRow, HeadCell, Row, TopAlignedCell } from '@src/components/Table';
+import { Description, SmallText } from '@src/components/Text';
 
 const CommitList = styled.ul`
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 0 0 -${grid(0.25)};
 `;
 
 const CommitItem = styled.li`
@@ -25,8 +20,7 @@ const CommitItem = styled.li`
     align-items: center;
 `;
 
-const CommitMessage = styled.small`
-    font-weight: normal;
+const CommitMessage = styled(SmallText)`
     margin: 0 0 0 ${grid(0.25)};
 `;
 
@@ -52,7 +46,7 @@ function renderActivityContent(act: UserActivity) {
         return (
             <>
                 <small>{content.title}</small>
-                <SmallText>{content.content}</SmallText>
+                <Description>{content.content}</Description>
             </>
         );
     }
@@ -74,7 +68,7 @@ export default (props: Props) => (
             <tbody>
                 {props.activities.map((act: UserActivity) => (
                     <BorderedRow key={act.id}>
-                        <CellWithAvatar>
+                        <AvatarCell>
                             <Avatar src={act.avatar} label={act.actUser.full_name} />
 
                             <div style={{ marginLeft: grid(1.5) }}>
@@ -83,20 +77,20 @@ export default (props: Props) => (
                                         {act.actUser.full_name}
                                     </a>
                                 </div>
-                                <SmallText dangerouslySetInnerHTML={{ __html: act.message }} />
-                                <SmallText>
+                                <Description dangerouslySetInnerHTML={{ __html: act.message }} />
+                                <Description>
                                     <time dateTime={act.time}>
                                         {new Date(act.time).toLocaleString()}
                                     </time>
-                                </SmallText>
+                                </Description>
                             </div>
-                        </CellWithAvatar>
+                        </AvatarCell>
 
-                        <Cell style={{ verticalAlign: 'top' }}>
+                        <TopAlignedCell style={{ verticalAlign: 'top' }}>
                             <div style={{ padding: `${grid(1)} 0` }}>
                                 {renderActivityContent(act)}
                             </div>
-                        </Cell>
+                        </TopAlignedCell>
                     </BorderedRow>
                 ))}
             </tbody>

@@ -11,9 +11,7 @@ export const Row = styled.tr`
     :last-child { padding-right: 0; }
 `;
 
-export const BorderedRow = styled.tr`
-    :first-child { padding-left: 0; }
-    :last-child { padding-right: 0; }
+export const BorderedRow = styled(Row)`
     > td {
         border-bottom: 1px solid ${colors.N20};
     }
@@ -28,14 +26,25 @@ export const Cell = styled.td`
     padding: ${grid(0.5)} ${grid(1)};
 `;
 
-export const CellWithAvatar = (props: HasChildren) => (
-    <Cell style={{ width: '50%' }}>
-        <div style={{
-            display: 'flex',
-            padding: `${grid(1)} 0`,
-            whiteSpace: 'nowrap',
-        }}>
+export const TopAlignedCell = styled(Cell)`
+    vertical-align: top;
+`;
+
+const AvatarCellUnit = styled(TopAlignedCell)`
+    width: 50%;
+`;
+
+const AvatarCellContainer = styled.div`
+    display: flex;
+    padding: ${grid(1)} 0;
+    white-space: nowrap;
+    vertical-align: top;
+`;
+
+export const AvatarCell = (props: HasChildren) => (
+    <AvatarCellUnit>
+        <AvatarCellContainer>
             {props.children}
-        </div>
-    </Cell>
+        </AvatarCellContainer>
+    </AvatarCellUnit>
 );
