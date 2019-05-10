@@ -37,7 +37,7 @@ export default class RepositoriesPage extends React.Component<{}, State> {
             q: this.state.keywords,
             limit: 15,
             mode: this.state.mode,
-            exclusive: !this.state.mode,
+            exclusive: this.state.mode !== '',
         });
         const url = `${GlobalData.baseUri}/api/v1/repos/search?${cond}`;
 
