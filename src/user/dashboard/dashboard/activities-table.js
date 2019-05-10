@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 import styled from 'styled-components';
-import { colors } from '@atlaskit/theme';
+import { colors, codeFontFamily } from '@atlaskit/theme';
 import Avatar from '@atlaskit/avatar';
 
 import { grid } from '@src/utils';
@@ -22,7 +22,10 @@ const CommitItem = styled.li`
 
 const CommitMessage = styled(SmallText)`
     margin: 0 0 0 ${grid(0.5)};
-    a { color: inherit; }
+    a { 
+        color: inherit; 
+        font-family: ${codeFontFamily};
+    }
 `;
 
 function renderActivityContent(act: UserActivity) {
