@@ -5,8 +5,8 @@ import { AkNavigationItem, AkNavigationItemGroup } from '@atlaskit/navigation';
 import ReposIcon from '@atlaskit/icon/glyph/bitbucket/repos';
 import GroupIcon from '@atlaskit/icon/glyph/people-group';
 import CopyIcon from '@atlaskit/icon/glyph/copy';
-import { url } from '../utils';
 
+import { url } from '../../utils';
 
 type ItemProps = {
     url: string;

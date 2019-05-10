@@ -69,12 +69,12 @@ export default (props: Props) => (
                 {props.activities.map((act: UserActivity) => (
                     <BorderedRow key={act.id}>
                         <AvatarCell>
-                            <Avatar src={act.avatar} label={act.actUser.full_name} />
+                            <Avatar src={act.avatar} label={act.actUser.full_name || act.actUser.username} />
 
                             <div style={{ marginLeft: grid(1.5) }}>
                                 <div>
                                     <a href={act.actUser.home_link} style={{ color: colors.text() }}>
-                                        {act.actUser.full_name}
+                                        {act.actUser.full_name || act.actUser.username}
                                     </a>
                                 </div>
                                 <Description dangerouslySetInnerHTML={{ __html: act.message }} />

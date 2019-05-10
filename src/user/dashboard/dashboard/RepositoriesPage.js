@@ -115,4 +115,3 @@ export default class RepositoriesPage extends React.Component<{}, State> {
         );
     }
 }
-

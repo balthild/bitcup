@@ -58,7 +58,11 @@ declare var GlobalData: {
     appName: string;
     title: string;
     lang: string;
+    isAdmin: boolean;
     isSignedIn: boolean;
     authUser: UserExtra;
     contextUser: UserExtra;
+    translations: {
+        [key: string]: string;
+    };
 };

@@ -21,8 +21,8 @@ export function grid(n: number, unit: string = 'px') {
 }
 
 // TODO: i18n
-export function __(key: string) {
-    return '';
+export function tr(key: string) {
+    return GlobalData.translations[key];
 }
 
 export const FlexRow = styled.div`

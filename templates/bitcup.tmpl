@@ -86,13 +86,14 @@
         title: {{.Title}},
         lang: {{.Language}},
 
+        isAdmin: {{.IsAdmin}},
         isSignedIn: {{.IsSigned}},
         authUser: /* User */ {
             id: {{.SignedUser.ID}},
             username: {{.SignedUser.Name}},
             full_name: {{.SignedUser.FullName}},
             email: {{.SignedUser.Email}},
-            avatar_url: {{.SignedUser.Avatar}},
+            avatar_url: {{.SignedUser.RelAvatarLink}},
             is_admin: {{.SignedUser.IsAdmin}},
             is_organization: {{.SignedUser.IsOrganization}},
             home_link: {{.SignedUser.HomeLink}},
@@ -104,7 +105,7 @@
             username: {{.ContextUser.Name}},
             full_name: {{.ContextUser.FullName}},
             email: {{.ContextUser.Email}},
-            avatar_url: {{.ContextUser.Avatar}},
+            avatar_url: {{.ContextUser.RelAvatarLink}},
             is_admin: {{.ContextUser.IsAdmin}},
             is_organization: {{.ContextUser.IsOrganization}},
             home_link: {{.ContextUser.HomeLink}},
@@ -113,7 +114,14 @@
 
         translations: {
             // TODO
-            'home.my_repos': {{$.i18n.Tr "home.my_repos"}},
+            'home.my_repos': {{.i18n.Tr "home.my_repos"}},
+
+            'signed_in_as': {{.i18n.Tr "signed_in_as"}},
+            'your_profile': {{.i18n.Tr "your_profile"}},
+            'your_starred': {{.i18n.Tr "your_starred"}},
+            'your_settings': {{.i18n.Tr "your_settings"}},
+            'admin_panel': {{.i18n.Tr "admin_panel"}},
+            'sign_out': {{.i18n.Tr "sign_out"}},
         },
     };
 </script>

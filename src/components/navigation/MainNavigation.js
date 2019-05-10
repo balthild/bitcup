@@ -1,12 +1,16 @@
 // @flow
 import * as React from 'react';
 
-import Navigation, { AkCreateDrawer, presetThemes } from '@atlaskit/navigation';
+import Navigation, { AkCreateDrawer, AkGlobalItem, presetThemes } from '@atlaskit/navigation';
 import MediaServicesBlurIcon from '@atlaskit/icon/glyph/media-services/blur';
 import CreateIcon from '@atlaskit/icon/glyph/add';
 import ArrowLeftIcon from '@atlaskit/icon/glyph/arrow-left';
-import CreationDrawer from './CreationDrawer';
+import NotificationIcon from '@atlaskit/icon/glyph/notification';
+
+import { url } from '@src/utils';
 import BrandMark from './BrandMark';
+import CreationDrawer from './CreationDrawer';
+import UserDropdown from './UserDropdown';
 
 type Props = HasChildren & {
     dark: boolean;
@@ -51,6 +55,10 @@ export default class MainNavigation extends React.Component<Props, State> {
                         <CreationDrawer />
                     </AkCreateDrawer>
                 )}
+                globalSecondaryActions={[
+                    <AkGlobalItem href={url('/notifications')}><NotificationIcon /></AkGlobalItem>,
+                    <UserDropdown />,
+                ]}
                 containerHeaderComponent={this.props.header}>
                 {this.props.children}
             </Navigation>
