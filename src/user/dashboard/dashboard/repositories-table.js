@@ -7,8 +7,8 @@ import { Skeleton } from '@atlaskit/avatar';
 import StarIcon from '@atlaskit/icon/glyph/star-large';
 
 import { Centerize, grid, url } from '@src/utils';
-import { AvatarCell, Cell, HeadCell, Row } from '@src/components/Table';
-import { Description, SmallText } from '@src/components/Text';
+import { AvatarCell, Cell, HeadCell, Row } from '@src/components/table';
+import { Description, SmallText } from '@src/components/text';
 
 const CharacterAvatar = styled(Skeleton)`
     background-color: ${colors.text()};

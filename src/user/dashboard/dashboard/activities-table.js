@@ -6,8 +6,8 @@ import { colors } from '@atlaskit/theme';
 import Avatar from '@atlaskit/avatar';
 
 import { grid } from '@src/utils';
-import { AvatarCell, BorderedRow, HeadCell, Row, TopAlignedCell } from '@src/components/Table';
-import { Description, SmallText } from '@src/components/Text';
+import { AvatarCell, BorderedRow, HeadCell, Row, TopAlignedCell } from '@src/components/table';
+import { Description, SmallText } from '@src/components/text';
 
 const CommitList = styled.ul`
     list-style: none;

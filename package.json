@@ -42,6 +42,7 @@
     "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.1",
+    "case-sensitive-paths-webpack-plugin": "^2.2.0",
     "cross-env": "^5.2.0",
     "eslint": "^5.16.0",
     "eslint-loader": "^2.1.2",

@@ -1,3 +1,5 @@
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+
 require('laravel-mix')
     .webpackConfig({
         devtool: 'source-map',
@@ -15,6 +17,9 @@ require('laravel-mix')
                 '@src': require('path').resolve(__dirname, 'src/'),
             },
         },
+        plugins: [
+            new CaseSensitivePathsPlugin(),
+        ],
     })
     .babelConfig({
         presets: [
