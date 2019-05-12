@@ -11,7 +11,7 @@ export function url(route: string) {
 
 export function unwrap<T>(val: ?T): T {
     if (val === undefined || val === null)
-        throw new Error();
+        throw new Error('You hit the bonus when unwrapping a nullable value!');
 
     return val;
 }

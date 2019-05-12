@@ -9,10 +9,10 @@ import { unwrap } from './utils';
 function getComponentModule(template: string) {
     /* global require */
     switch (template) {
-        case 'user/dashboard/dashboard': return require('./user/dashboard/dashboard');
-        case 'user/dashboard/feeds': return require('./user/dashboard/dashboard');
-        case 'user/dashboard/issues': return require('./user/dashboard/dashboard');
-        default: return require('./error/not-found');
+        case 'user/dashboard/dashboard': return require('./page/user/dashboard/dashboard');
+        case 'user/dashboard/feeds': return require('./page/user/dashboard/dashboard');
+        case 'user/dashboard/issues': return require('./page/user/dashboard/dashboard');
+        default: return require('./page/error/not-found');
     }
 }
 
