@@ -53,6 +53,17 @@ declare type UserActivityIssueComment = {
     content: string;
 }
 
+declare type UserOrganization = {
+    id: number;
+    name: string;
+    full_name: string;
+    home_link: string;
+    avatar_url: string;
+    description: string;
+    num_repos: string;
+    website: string;
+}
+
 declare var GlobalData: {
     baseUri: string;
     appName: string;

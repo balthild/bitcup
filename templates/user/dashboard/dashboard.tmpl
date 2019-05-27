@@ -110,6 +110,21 @@
                 },
                 {{end}}
             ],
+            organizations: [
+                {{range .ContextUser.Orgs}}
+                {
+                    id: {{.ID}},
+                    name: {{.Name}},
+                    full_name: {{.FullName}},
+                    home_link: {{.HomeLink}},
+                    avatar_url: {{.AvatarLink}},
+                    description: {{.Description}},
+                    num_repos: {{.NumRepos}},
+                    website: {{.Website}},
+                },
+                {{end}}
+            ],
+                aa:{{.ContextUser.Orgs}}
         });
     </script>
 {{end}}

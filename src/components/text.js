@@ -8,7 +8,7 @@ import { grid } from '@src/utils';
 
 export const SmallText = styled.span`
     color: ${colors.subtleText()};
-    font-size: 0.825em;
+    font-size: 0.8em;
 `;
 
 export const Description = styled(SmallText)`

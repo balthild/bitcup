@@ -2,9 +2,14 @@
 import * as React from 'react';
 
 import ContentLayout from './content-layout';
+import OrganizationsTable from './organizations-table';
 
-export default () => (
+type Props = {
+    organizations: UserOrganization[];
+}
+
+export default (props: Props) => (
     <ContentLayout title="Organizations">
-        // TODO
+        <OrganizationsTable organizations={props.organizations} />
     </ContentLayout>
 );

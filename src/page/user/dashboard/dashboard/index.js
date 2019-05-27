@@ -18,6 +18,7 @@ function getDefaultSelectedNavItem() {
 
 type Props = {
     activities: UserActivity[],
+    organizations: UserOrganization[],
 }
 
 type State = {
@@ -37,7 +38,7 @@ export default class Dashboard extends React.Component<Props, State> {
 
     renderPage() {
         if (this.state.currentPage === 'org') {
-            return <OrganizationsPage />;
+            return <OrganizationsPage organizations={this.props.organizations} />;
         } else if (this.state.currentPage === 'repo') {
             return <RepositoriesPage />;
         } else {

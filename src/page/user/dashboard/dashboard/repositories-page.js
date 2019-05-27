@@ -6,9 +6,10 @@ import * as queryString from 'query-string';
 import { FieldTextStateless } from '@atlaskit/field-text';
 import Select from '@atlaskit/select';
 
+import { grid } from '@src/utils';
+import { FlexRow } from '@src/components/layout';
 import ContentLayout from './content-layout';
 import RepositoriesTable from './repositories-table';
-import { FlexRow, grid } from '@src/utils';
 
 type State = {
     loading: boolean;

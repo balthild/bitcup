@@ -6,7 +6,8 @@ import { colors } from '@atlaskit/theme';
 import { Skeleton } from '@atlaskit/avatar';
 import StarIcon from '@atlaskit/icon/glyph/star-large';
 
-import { Centerize, grid, url } from '@src/utils';
+import { grid, url } from '@src/utils';
+import { Center } from '@src/components/layout';
 import { AvatarCell, Cell, HeadCell, Row } from '@src/components/table';
 import { Description, SmallText } from '@src/components/text';
 
@@ -69,10 +70,10 @@ export default (props: Props) => (
                         <Cell><RepoDescription>{repo.description}</RepoDescription></Cell>
 
                         <Cell>
-                            <Centerize>
+                            <Center>
                                 <StarIcon size="small" />
                                 <span style={{ marginLeft: grid(0.5) }}>{repo.stars_count}</span>
-                            </Centerize>
+                            </Center>
                         </Cell>
                     </Row>
                 ))}
