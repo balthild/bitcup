@@ -1,0 +1,32 @@
+{{if or (eq .GetOpType 5) (eq .GetOpType 18)}}
+    [
+        {{ $push := ActionContent2Commits .}}
+        {{ $repoLink := .GetRepoLink}}
+        {{if $push.Commits}}
+            {{range $push.Commits}}
+                {
+                    avatar: {{$push.AvatarLink .AuthorEmail}},
+                    hash: {{ShortSha .Sha1}},
+                    link: "{{$repoLink}}\/commit\/{{.Sha1}}",
+                    message: {{.Message}},
+                },
+            {{end}}
+        {{end}}
+    ]
+{{else if or (eq .GetOpType 6) (eq .GetOpType 7)}}
+    {
+        title: "{{.GetIssueTitle}}",
+        content: {{.GetIssueContent}},
+    }
+{{else if eq .GetOpType 10}}
+    {
+        title: "Re: {{.GetIssueTitle}}",
+        content: {{index .GetIssueInfos 1}},
+    }
+{{else if eq .GetOpType 11}}
+    {{index .GetIssueInfos 1}}
+{{else if or (eq .GetOpType 12) (eq .GetOpType 13) (eq .GetOpType 14) (eq .GetOpType 15)}}
+    {{.GetIssueTitle}}
+{{else}}
+    null
+{{end}}

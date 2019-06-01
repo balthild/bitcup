@@ -1,0 +1,50 @@
+{{if eq .Act.GetOpType 1}}
+    {{$.ctx.i18n.Tr "action.create_repo" .Act.GetRepoLink .Act.ShortRepoPath | Str2html}}
+{{else if eq .Act.GetOpType 2}}
+    {{$.ctx.i18n.Tr "action.rename_repo" .Act.GetContent .Act.GetRepoLink .Act.ShortRepoPath | Str2html}}
+{{else if eq .Act.GetOpType 5}}
+    {{$branchLink := .Act.GetBranch | EscapePound | Escape}}
+    {{$.ctx.i18n.Tr "action.commit_repo" .Act.GetRepoLink $branchLink (Escape .Act.GetBranch) .Act.ShortRepoPath | Str2html}}
+{{else if eq .Act.GetOpType 6}}
+    {{$index := index .Act.GetIssueInfos 0}}
+    {{$.ctx.i18n.Tr "action.create_issue" .Act.GetRepoLink $index .Act.ShortRepoPath | Str2html}}
+{{else if eq .Act.GetOpType 7}}
+    {{$index := index .Act.GetIssueInfos 0}}
+    {{$.ctx.i18n.Tr "action.create_pull_request" .Act.GetRepoLink $index .Act.ShortRepoPath | Str2html}}
+{{else if eq .Act.GetOpType 8}}
+    {{$.ctx.i18n.Tr "action.transfer_repo" .Act.GetContent .Act.GetRepoLink .Act.ShortRepoPath | Str2html}}
+{{else if eq .Act.GetOpType 9}}
+    {{$branchLink := .Act.GetBranch | EscapePound | Escape}}
+    {{$.ctx.i18n.Tr "action.push_tag" .Act.GetRepoLink $branchLink .Act.ShortRepoPath | Str2html}}
+{{else if eq .Act.GetOpType 10}}
+    {{$index := index .Act.GetIssueInfos 0}}
+    {{$.ctx.i18n.Tr "action.comment_issue" .Act.GetRepoLink $index .Act.ShortRepoPath | Str2html}}
+{{else if eq .Act.GetOpType 11}}
+    {{$index := index .Act.GetIssueInfos 0}}
+    {{$.ctx.i18n.Tr "action.merge_pull_request" .Act.GetRepoLink $index .Act.ShortRepoPath | Str2html}}
+{{else if eq .Act.GetOpType 12}}
+    {{$index := index .Act.GetIssueInfos 0}}
+    {{$.ctx.i18n.Tr "action.close_issue" .Act.GetRepoLink $index .Act.ShortRepoPath | Str2html}}
+{{else if eq .Act.GetOpType 13}}
+    {{$index := index .Act.GetIssueInfos 0}}
+    {{$.ctx.i18n.Tr "action.reopen_issue" .Act.GetRepoLink $index .Act.ShortRepoPath | Str2html}}
+{{else if eq .Act.GetOpType 14}}
+    {{$index := index .Act.GetIssueInfos 0}}
+    {{$.ctx.i18n.Tr "action.close_pull_request" .Act.GetRepoLink $index .Act.ShortRepoPath | Str2html}}
+{{else if eq .Act.GetOpType 15}}
+    {{$index := index .Act.GetIssueInfos 0}}
+    {{$.ctx.i18n.Tr "action.reopen_pull_request" .Act.GetRepoLink $index .Act.ShortRepoPath | Str2html}}
+{{else if eq .Act.GetOpType 16}}
+    {{$index := index .Act.GetIssueInfos 0}}
+    {{$.ctx.i18n.Tr "action.delete_tag" .Act.GetRepoLink .Act.GetBranch .Act.ShortRepoPath | Str2html}}
+{{else if eq .Act.GetOpType 17}}
+    {{$index := index .Act.GetIssueInfos 0}}
+    {{$.ctx.i18n.Tr "action.delete_branch" .Act.GetRepoLink .Act.GetBranch .Act.ShortRepoPath | Str2html}}
+{{else if eq .Act.GetOpType 18}}
+    {{$branchLink := .Act.GetBranch | EscapePound}}
+    {{$.ctx.i18n.Tr "action.mirror_sync_push" .Act.GetRepoLink $branchLink .Act.GetBranch .Act.ShortRepoPath | Str2html}}
+{{else if eq .Act.GetOpType 19}}
+    {{$.ctx.i18n.Tr "action.mirror_sync_create" .Act.GetRepoLink .Act.GetBranch .Act.ShortRepoPath | Str2html}}
+{{else if eq .Act.GetOpType 20}}
+    {{$.ctx.i18n.Tr "action.mirror_sync_delete" .Act.GetRepoLink .Act.GetBranch .Act.ShortRepoPath | Str2html}}
+{{end}}
