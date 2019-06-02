@@ -2,9 +2,8 @@
 import * as React from 'react';
 
 import styled from 'styled-components';
-import { AVATAR_SIZES } from '@atlaskit/avatar';
-import Avatar from '@atlaskit/avatar';
 import type { AvatarPropTypes } from '@atlaskit/avatar';
+import Avatar, { AVATAR_SIZES } from '@atlaskit/avatar';
 
 const CharacterWrapper = styled.div`
     width: ${props => AVATAR_SIZES[props.size || 'medium']}px;
@@ -25,18 +24,20 @@ const CharacterWrapper = styled.div`
     position: relative;
 `;
 
+const LinkComponent = styled.a``;
+const ButtonComponent = styled.button``;
+const ContainerComponent = styled.div``;
+
 const CharacterAvatarComponent = ({ char, ...props }) => {
     const children = <CharacterWrapper>{char}</CharacterWrapper>;
 
     if (props.href) {
-        return <a {...props}>{children}</a>;
+        return <LinkComponent {...props}>{children}</LinkComponent>;
+    } else if (props.onClick) {
+        return <ButtonComponent {...props}>{children}</ButtonComponent>;
+    } else {
+        return <ContainerComponent {...props}>{children}</ContainerComponent>;
     }
-
-    if (props.onClick) {
-        return <button {...props}>{children}</button>;
-    }
-
-    return <div {...props} children={children} />;
 };
 
 type CharacterAvatarProps = {

@@ -19,6 +19,26 @@ type State = {
 }
 
 export default class RepositoriesPage extends React.Component<{}, State> {
+    static allRepos = null;
+
+    static async getAllRepos() {
+        if (this.allRepos !== null) {
+            return this.allRepos;
+        }
+
+        const cond = queryString.stringify({
+            sort: 'updated',
+            order: 'desc',
+            uid: GlobalData.contextUser.id,
+            limit: 15,
+        });
+        const url = `${GlobalData.baseUri}/api/v1/repos/search?${cond}`;
+
+        const data = await fetch(url).then(r => r.json());
+
+        return this.allRepos = data.data;
+    }
+
     state = {
         loading: true,
         keywords: '',
@@ -27,9 +47,19 @@ export default class RepositoriesPage extends React.Component<{}, State> {
     };
 
     searchRepos = async () => {
+        const { keywords, mode } = this.state;
+
         this.setState({
             loading: true,
         });
+
+        if (mode === '' && keywords === '') {
+            this.setState({
+                loading: false,
+                repos: await RepositoriesPage.getAllRepos(),
+            });
+            return;
+        }
 
         const cond = queryString.stringify({
             sort: 'updated',
