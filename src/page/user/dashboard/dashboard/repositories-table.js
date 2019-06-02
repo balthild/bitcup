@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import styled from 'styled-components';
 import { colors } from '@atlaskit/theme';
-import { Skeleton } from '@atlaskit/avatar';
+import { AVATAR_SIZES } from '@atlaskit/avatar';
 import StarIcon from '@atlaskit/icon/glyph/star-large';
 
 import { grid, url } from '@src/utils';
@@ -11,16 +11,42 @@ import { Center } from '@src/components/layout';
 import { AvatarCell, Cell, HeadCell, HintRow, Row } from '@src/components/table';
 import { Description, SmallText } from '@src/components/text';
 
-const CharacterAvatar = styled(Skeleton)`
-    background-color: ${colors.text()};
+const CharacterAvatar = styled.div`
+    width: ${AVATAR_SIZES.medium}px;
+    height: ${AVATAR_SIZES.medium}px;
+    border-radius: ${AVATAR_SIZES.medium / 2 + 2}px;
+    border: 2px solid transparent;
+    background-color: ${colors.N40};
+    background-clip: padding-box;
+
     font-size: 20px;
     font-weight: bold;
     color: white;
     text-transform: uppercase;
+    user-select: none;
+
     display: flex;
     justify-content: center;
     align-items: center;
     align-self: center;
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: ${AVATAR_SIZES.medium / 2}px;
+        background: ${colors.N900};
+        opacity: 0;
+        transition: opacity 200ms ease 0s;
+    }
+
+    &:hover::before {
+        opacity: 0.2;
+    }
 `;
 
 const RepoDescription = styled(Description)`

@@ -65,16 +65,16 @@ declare type UserOrganization = {
     website: string;
 }
 
-declare var GlobalData: {
+declare var GlobalData: $ReadOnly<{
     baseUri: string;
     appName: string;
     title: string;
     lang: string;
     isAdmin: boolean;
     isSignedIn: boolean;
-    authUser: UserExtra;
-    contextUser: UserExtra;
+    authUser: $ReadOnly<UserExtra>;
+    contextUser: $ReadOnly<UserExtra>;
     translations: {
-        [key: string]: string;
+        +[key: string]: string;
     };
-};
+}>;
