@@ -8,7 +8,7 @@ import StarIcon from '@atlaskit/icon/glyph/star-large';
 
 import { grid, url } from '@src/utils';
 import { Center } from '@src/components/layout';
-import { AvatarCell, Cell, HeadCell, Row } from '@src/components/table';
+import { AvatarCell, Cell, HeadCell, HintRow, Row } from '@src/components/table';
 import { Description, SmallText } from '@src/components/text';
 
 const CharacterAvatar = styled(Skeleton)`
@@ -29,7 +29,49 @@ const RepoDescription = styled(Description)`
 `;
 
 type Props = {
+    loading: boolean;
     repos: Repo[];
+}
+
+function renderTableBody({ loading, repos }: Props) {
+    if (loading) {
+        return <HintRow>Loading...</HintRow>;
+    } else {
+        return repos.map((repo: Repo) => (
+            <Row key={repo.id}>
+                <AvatarCell>
+                    <CharacterAvatar>{repo.name[0]}</CharacterAvatar>
+
+                    <div style={{ marginLeft: grid(1.5) }}>
+                        <div>
+                            <a href={repo.html_url} style={{ color: colors.text() }}>
+                                {repo.name}
+                            </a>
+                        </div>
+
+                        <SmallText>
+                            <a href={url(repo.owner.username)} style={{ color: 'inherit' }}>
+                                {repo.owner.full_name || repo.owner.username}
+                            </a>
+                            {' - '}
+                            <time dateTime={repo.updated_at}>
+                                {repo.updated_at.split('T')[0]}
+                            </time>
+                        </SmallText>
+                    </div>
+                </AvatarCell>
+
+                <Cell><RepoDescription>{repo.description}</RepoDescription></Cell>
+
+                <Cell>
+                    <Center>
+                        <StarIcon size="small" />
+                        <span style={{ marginLeft: grid(0.5) }}>{repo.stars_count}</span>
+                    </Center>
+                </Cell>
+            </Row>
+        ));
+    }
 }
 
 export default (props: Props) => (
@@ -43,40 +85,7 @@ export default (props: Props) => (
                 </Row>
             </thead>
             <tbody>
-                {props.repos.map((repo: Repo) => (
-                    <Row key={repo.id}>
-                        <AvatarCell>
-                            <CharacterAvatar>{repo.name[0]}</CharacterAvatar>
-
-                            <div style={{ marginLeft: grid(1.5) }}>
-                                <div>
-                                    <a href={repo.html_url} style={{ color: colors.text() }}>
-                                        {repo.name}
-                                    </a>
-                                </div>
-
-                                <SmallText>
-                                    <a href={url(repo.owner.username)} style={{ color: 'inherit' }}>
-                                        {repo.owner.full_name || repo.owner.username}
-                                    </a>
-                                    {' - '}
-                                    <time dateTime={repo.updated_at}>
-                                        {repo.updated_at.split('T')[0]}
-                                    </time>
-                                </SmallText>
-                            </div>
-                        </AvatarCell>
-
-                        <Cell><RepoDescription>{repo.description}</RepoDescription></Cell>
-
-                        <Cell>
-                            <Center>
-                                <StarIcon size="small" />
-                                <span style={{ marginLeft: grid(0.5) }}>{repo.stars_count}</span>
-                            </Center>
-                        </Cell>
-                    </Row>
-                ))}
+                {renderTableBody(props)}
             </tbody>
         </table>
     </div>

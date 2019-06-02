@@ -48,3 +48,14 @@ export const AvatarCell = (props: HasChildren) => (
         </AvatarCellContainer>
     </AvatarCellUnit>
 );
+
+const HintCell = styled(Cell)`
+    text-align: center;
+    color: ${colors.placeholderText()};
+    font-style: italic;
+    padding: ${grid(1.5)} ${grid(1)};
+`;
+
+export const HintRow = ({ children }: HasChildren) => (
+    <Row><HintCell colSpan="999">{children}</HintCell></Row>
+);

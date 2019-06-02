@@ -55,17 +55,13 @@ export default class RepositoriesPage extends React.Component<{}, State> {
     onKeywordChanged = (e: SyntheticKeyboardEvent<*>) => {
         this.setState({
             keywords: e.currentTarget.value,
-        });
-
-        this.searchReposDebounced();
+        }, this.searchReposDebounced);
     };
 
     onTypeChanged = (type: { mode: string; }) => {
         this.setState({
             mode: type.mode,
-        });
-
-        this.searchReposDebounced();
+        }, this.searchReposDebounced);
     };
 
     componentDidMount() {
@@ -109,7 +105,7 @@ export default class RepositoriesPage extends React.Component<{}, State> {
                     </div>
                 </FlexRow>
 
-                <RepositoriesTable repos={this.state.repos} />
+                <RepositoriesTable loading={this.state.loading} repos={this.state.repos} />
 
                 <p><a href={GlobalData.contextUser.home_link}>Show more repositories</a></p>
             </ContentLayout>
