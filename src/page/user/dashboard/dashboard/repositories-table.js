@@ -11,6 +11,10 @@ import { AvatarCell, Cell, HeadCell, HintRow, Row } from '@src/components/table'
 import { Description, SmallText } from '@src/components/text';
 import { CharacterAvatar } from '@src/components/avatar';
 
+const RepoAvatarWrapper = styled.div`
+    align-self: center;
+`;
+
 const RepoDescription = styled(Description)`
     margin: 0;
     max-width: ${grid(60)};
@@ -28,7 +32,9 @@ function renderTableBody({ loading, repos }: Props) {
         return repos.map((repo: Repo) => (
             <Row key={repo.id}>
                 <AvatarCell>
-                    <CharacterAvatar>{repo.full_name || repo.name}</CharacterAvatar>
+                    <RepoAvatarWrapper>
+                        <CharacterAvatar>{repo.name}</CharacterAvatar>
+                    </RepoAvatarWrapper>
 
                     <div style={{ marginLeft: grid(1.5) }}>
                         <div>
@@ -49,7 +55,9 @@ function renderTableBody({ loading, repos }: Props) {
                     </div>
                 </AvatarCell>
 
-                <Cell><RepoDescription>{repo.description}</RepoDescription></Cell>
+                <Cell>
+                    <RepoDescription>{repo.description}</RepoDescription>
+                </Cell>
 
                 <Cell>
                     <Center>
@@ -72,6 +80,7 @@ export default (props: Props) => (
                     <HeadCell>Stars</HeadCell>
                 </Row>
             </thead>
+
             <tbody>
                 {renderTableBody(props)}
             </tbody>

@@ -11,6 +11,10 @@ import { Center } from '@src/components/layout';
 import { AvatarCell, Cell, HeadCell, Row } from '@src/components/table';
 import { Description, SmallText } from '@src/components/text';
 
+const OrgAvatarWrapper = styled.div`
+    align-self: center;
+`;
+
 const OrgDescription = styled(Description)`
     margin: 0;
     max-width: ${grid(60)};
@@ -30,11 +34,14 @@ export default (props: Props) => (
                     <HeadCell>Repositories</HeadCell>
                 </Row>
             </thead>
+
             <tbody>
                 {props.organizations.map((org: UserOrganization) => (
                     <Row key={org.id}>
                         <AvatarCell>
-                            <Avatar src={org.avatar_url} />
+                            <OrgAvatarWrapper>
+                                <Avatar src={org.avatar_url} />
+                            </OrgAvatarWrapper>
 
                             <div style={{ marginLeft: grid(1.5) }}>
                                 <div>
@@ -51,7 +58,9 @@ export default (props: Props) => (
                             </div>
                         </AvatarCell>
 
-                        <Cell><OrgDescription>{org.description}</OrgDescription></Cell>
+                        <Cell>
+                            <OrgDescription>{org.description}</OrgDescription>
+                        </Cell>
 
                         <Cell>
                             <Center>

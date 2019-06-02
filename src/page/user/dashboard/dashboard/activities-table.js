@@ -71,6 +71,7 @@ export default (props: Props) => (
                     <HeadCell>Overview</HeadCell>
                 </Row>
             </thead>
+
             <tbody>
                 {props.activities.map((act: UserActivity) => (
                     <BorderedRow key={act.id}>
