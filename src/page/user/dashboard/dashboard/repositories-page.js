@@ -26,13 +26,13 @@ export default class RepositoriesPage extends React.Component<{}, State> {
             return this.allRepos;
         }
 
-        const cond = queryString.stringify({
+        const query = queryString.stringify({
             sort: 'updated',
             order: 'desc',
             uid: GlobalData.contextUser.id,
             limit: 15,
         });
-        const url = `${GlobalData.baseUri}/api/v1/repos/search?${cond}`;
+        const url = `${GlobalData.baseUri}/api/v1/repos/search?${query}`;
 
         const data = await fetch(url).then(r => r.json());
 
@@ -58,19 +58,20 @@ export default class RepositoriesPage extends React.Component<{}, State> {
                 loading: false,
                 repos: await RepositoriesPage.getAllRepos(),
             });
+
             return;
         }
 
-        const cond = queryString.stringify({
+        const query = queryString.stringify({
             sort: 'updated',
             order: 'desc',
             uid: GlobalData.contextUser.id,
             q: this.state.keywords,
             limit: 15,
             mode: this.state.mode,
-            exclusive: this.state.mode !== '',
+            exclusive: 1,
         });
-        const url = `${GlobalData.baseUri}/api/v1/repos/search?${cond}`;
+        const url = `${GlobalData.baseUri}/api/v1/repos/search?${query}`;
 
         const data = await fetch(url).then(r => r.json());
 
@@ -95,14 +96,12 @@ export default class RepositoriesPage extends React.Component<{}, State> {
     };
 
     componentDidMount() {
-        this.setState({
-            loading: true,
-            keywords: '',
-            mode: '',
-            repos: [],
+        RepositoriesPage.getAllRepos().then(repos => {
+            this.setState({
+                loading: false,
+                repos
+            });
         });
-
-        this.searchRepos();
     }
 
     render() {
